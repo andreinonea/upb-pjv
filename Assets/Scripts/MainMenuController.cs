@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public void onPlayBtnPressed()
+    public void onLoadSceneButtonPressed(int sceneId)
     {
-        Debug.Log("Loading scene...");
-        SceneManager.LoadScene(1);
+        Debug.Log("Loading scene " + sceneId + "...");
+        SceneManager.LoadScene(sceneId);
+    }
+
+    public void onLoadSceneButtonPressed(string sceneName)
+    {
+        Debug.Log("Loading " + sceneName + " scene...");
+        SceneManager.LoadScene(sceneName);
     }
 }
