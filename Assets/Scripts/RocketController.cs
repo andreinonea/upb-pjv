@@ -33,14 +33,15 @@ public class RocketController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLIDED");
         Explode();
+        EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+        if (enemy != null)
+            enemy.Die();
     }
 
     private void Explode()
     {
-        Debug.Log(transform.position);
-        ParticleSystem clone = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        Instantiate(explosionParticles, transform.position, Quaternion.identity);
         if (gameObject != null)
             Destroy(gameObject);
     }

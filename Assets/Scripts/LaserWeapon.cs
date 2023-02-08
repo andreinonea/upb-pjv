@@ -35,6 +35,10 @@ public class LaserWeapon : Weapon
         {
             Debug.Log("hit something");
             laserRenderer.SetPosition(1, hit.point);
+
+            EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+            if (enemy != null)
+                enemy.Die();
         }
         else
         {
